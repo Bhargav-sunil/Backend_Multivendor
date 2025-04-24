@@ -33,5 +33,5 @@ app.use('/product',productRoutes)
 app.use('/uploads',express.static('uploads'))
 
 app.use('/',(req,res) => {
-    res.sendFile(<h1>Wlecome to Home Page</h1>)
+    res.send("<h1>Wlecome to Home Page")
 })
