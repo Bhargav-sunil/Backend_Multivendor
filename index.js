@@ -11,10 +11,11 @@ const productRoutes = require('./routes/productRoutes')
 
 
 const app = express()
-const PORT = 4000;
 
 dotenv.config()
 app.use(cors())
+
+const PORT = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=> console.log("Database connected Successfully"))
@@ -30,3 +31,7 @@ app.use('/vendor', vendorRoutes)
 app.use('/firm',firmRoutes)
 app.use('/product',productRoutes)
 app.use('/uploads',express.static('uploads'))
+
+app.use('/',(req,res) => {
+    res.sendFile(<h1>Wlecome to Home Page</h1>)
+})
